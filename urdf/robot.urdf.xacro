@@ -17,6 +17,26 @@
     </inertial>
   </xacro:macro>
 
+  <xacro:property name="robot_width" value = "${0.75}"/>
+  <xacro:property name="robot_length" value = "${0.75}"/>
+
+<link name="base_link">
+    <visual>
+      <geometry>
+        <box size = "${robot_width} ${robot_length} 0.2"/>
+      </geometry>
+      <material name = "white"/>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+    </visual> 
+    <collision>
+      <geometry>
+        <box size = "${robot_width} ${robot_length} 0.2"/>
+      </geometry>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+    </collision>
+    <xacro:default_inertial mass="8"/>
+  </link>
+
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/</robotNamespace>

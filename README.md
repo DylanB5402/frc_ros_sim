@@ -1,4 +1,4 @@
-An ROS Simulator for FRC robot using WPILib 
+An Simulator for FRC robots using ROS, Gazebo, and WPILib
 
 To-do:
 - URDF for a simple tank drive robot
