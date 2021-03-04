@@ -11,7 +11,7 @@ catkin_package(
 )
 
 catkin_install_python(PROGRAMS 
-  scripts/test_script.py 
+  # scripts/test_script.py 
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/scripts
 )
 
