@@ -18,3 +18,6 @@ Python deps:
 
 - robotpy
 - websocket-client (https://github.com/websocket-client/websocket-client)
+
+Using onshape-to-robot to generate URDFs
+https://github.com/Rhoban/onshape-to-robot
