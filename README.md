@@ -22,10 +22,13 @@ Python deps:
 Using onshape-to-robot to generate URDFs
 https://github.com/Rhoban/onshape-to-robot
 
-how to make generated urdfs work:
+how to make generated urdfs work with ROS/Gazebo:
 - make sure the parent link is called base_link
 - change the urdf to a urdf.xacro
 - change meshes from <mesh filename="package://file.stl"/> to <mesh filename="package://package_name/folder/file.stl"/>
 = <mesh filename="package://wheel.stl"/> becomes <mesh filename="package://frc_ros_sim/my_robot/wheel.stl"/>
 - change revolute joints for wheels to continuous joints
 - add gazebo block to the bottom
+- add transmissions
+
+If velocity controllers aren't installed run sudo apt install ros-noetic-velocity-controllers

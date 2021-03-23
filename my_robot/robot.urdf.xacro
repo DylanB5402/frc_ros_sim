@@ -61,6 +61,16 @@
 <joint_properties friction="0.0"/>
 </joint>
 
+<transmission name="wheelRightBack_speed_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="wheelRightBack_speed_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="wheelRightBack_speed">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </joint>
+</transmission>
+
 <link name="wheel_2">
 <visual>
 <origin xyz="0 0 -0.0254" rpy="-1.5708 -0 0" />
@@ -95,6 +105,16 @@
 <limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
+
+<transmission name="wheelRightFront_speed_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="wheelRightFront_speed_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="wheelRightFront_speed">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </joint>
+</transmission>
 
 <link name="wheel_3">
 <visual>
@@ -131,6 +151,16 @@
 <joint_properties friction="0.0"/>
 </joint>
 
+<transmission name="wheelLeftFront_speed_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="wheelLeftFront_speed_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="wheelLeftFront_speed">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </joint>
+</transmission>
+
 <link name="wheel_4">
 <visual>
 <origin xyz="0 -3.46945e-18 0" rpy="-1.5708 -0 0" />
@@ -165,6 +195,16 @@
 <limit effort="1" velocity="20" />
 <joint_properties friction="0.0"/>
 </joint>
+
+<transmission name="wheelLeftBack_speed_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="wheelLeftBack_speed_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="wheelLeftBack_speed">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </joint>
+</transmission>
 
 <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">

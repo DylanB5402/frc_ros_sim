@@ -1,3 +1,0 @@
-type: "velocity_controllers/JointVelocityController"
-joint: head_swivel
-pid: {p: 1, i: 0, d: 0}
