@@ -1,5 +1,6 @@
-<robot name="onshape">
-<link name="robot_body">
+<?xml version="1.0"?>
+<robot name="onshape" xmlns:xacro="http://ros.org/wiki/xacro">
+<link name="base_link">
 <visual>
 <origin xyz="0.0185107 -0.0366209 -0.0384443" rpy="0 -0 0" />
 <geometry>
@@ -53,7 +54,7 @@
 
 <joint name="wheelRightBack_speed" type="continuous">
 <origin xyz="0.346811 -0.32092 -0.0130443" rpy="-1.5708 -0 -1.5708" />
-<parent link="robot_body" />
+<parent link="base_link" />
 <child link="wheel" />
 <axis xyz="0 0 1"/>
 <limit effort="1" velocity="20" />
@@ -88,7 +89,7 @@
 
 <joint name="wheelRightFront_speed" type="continuous">
 <origin xyz="0.346811 0.0750801 -0.0130443" rpy="-1.5708 -0 -1.5708" />
-<parent link="robot_body" />
+<parent link="base_link" />
 <child link="wheel_2" />
 <axis xyz="0 0 1"/>
 <limit effort="1" velocity="20" />
@@ -123,7 +124,7 @@
 
 <joint name="wheelLeftFront_speed" type="continuous">
 <origin xyz="-0.368589 0.0750801 -0.0130443" rpy="-3.14159 -1.5708 0" />
-<parent link="robot_body" />
+<parent link="base_link" />
 <child link="wheel_3" />
 <axis xyz="0 0 1"/>
 <limit effort="1" velocity="20" />
@@ -158,7 +159,7 @@
 
 <joint name="wheelLeftBack_speed" type="continuous">
 <origin xyz="-0.368589 -0.32092 -0.0130443" rpy="-1.5708 -0 -1.5708" />
-<parent link="robot_body" />
+<parent link="base_link" />
 <child link="wheel_4" />
 <axis xyz="0 0 1"/>
 <limit effort="1" velocity="20" />
