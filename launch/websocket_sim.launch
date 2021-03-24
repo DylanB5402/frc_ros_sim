@@ -1,5 +1,5 @@
 <launch>
-    <include file="$(find frc_ros_sim)/launch/robot.launch">
+    <include file="$(find frc_ros_sim)/launch/robot.launch"/>
     <node pkg="frc_ros_sim" name="websocket_interface" type="websocket_interface.py"/>
     <node pkg="frc_ros_sim" name="drive_model" type="drive_model.py"/>
 </launch>

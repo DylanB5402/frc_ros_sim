@@ -57,7 +57,7 @@
 <parent link="base_link" />
 <child link="wheel" />
 <axis xyz="0 0 1"/>
-<limit effort="30" velocity="70" />
+<limit effort="200" velocity="200" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -102,7 +102,7 @@
 <parent link="base_link" />
 <child link="wheel_2" />
 <axis xyz="0 0 1"/>
-<limit effort="30" velocity="70" />
+<limit effort="200" velocity="200" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -147,7 +147,7 @@
 <parent link="base_link" />
 <child link="wheel_3" />
 <axis xyz="0 0 1"/>
-<limit effort="30" velocity="70" />
+<limit effort="200" velocity="200" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -192,7 +192,7 @@
 <parent link="base_link" />
 <child link="wheel_4" />
 <axis xyz="0 0 1"/>
-<limit effort="30" velocity="70" />
+<limit effort="200" velocity="200" />
 <joint_properties friction="0.0"/>
 </joint>
 

@@ -131,6 +131,8 @@ public class DriveSubsystem extends SubsystemBase {
     m_rightEncoderSim.setDistance(m_drivetrainSimulator.getRightPositionMeters());
     m_rightEncoderSim.setRate(m_drivetrainSimulator.getRightVelocityMetersPerSecond());
     m_gyroSim.setAngle(-m_drivetrainSimulator.getHeading().getDegrees());
+    SmartDashboard.putNumber("left vel", m_drivetrainSimulator.getLeftVelocityMetersPerSecond() / Constants.DriveConstants.kWheelRadiusMeters);
+    SmartDashboard.putNumber("right vel", m_drivetrainSimulator.getRightVelocityMetersPerSecond() / Constants.DriveConstants.kWheelRadiusMeters);
     s.createDouble("TestData", Direction.kOutput, 0);
     // s.
     // s.send
