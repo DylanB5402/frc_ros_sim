@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.Constants;
+import frc.robot.sim.DriveSimData;
 import frc.robot.sim.PretendDevice;
 import frc.robot.sim.PretendDeviceSim;
 import edu.wpi.first.wpilibj.geometry.Pose2d;
@@ -72,8 +73,9 @@ public class DriveSubsystem extends SubsystemBase {
   private Field2d m_fieldSim;
   private ADXRS450_GyroSim m_gyroSim;
 
-  private PretendDevice m_dev;
-  private PretendDeviceSim m_devSim;
+  // private PretendDevice m_dev;
+  // private PretendDeviceSim m_devSim;
+  private DriveSimData m_driveData;
 
 
   /** Creates a new DriveSubsystem. */
@@ -105,8 +107,9 @@ public class DriveSubsystem extends SubsystemBase {
       m_fieldSim = new Field2d();
       SmartDashboard.putData("Field", m_fieldSim);
 
-      m_dev = new PretendDevice();
-      m_devSim = new PretendDeviceSim();
+      // m_dev = new PretendDevice();
+      // m_devSim = new PretendDeviceSim();
+      m_driveData = new DriveSimData();
     }
   }
 
@@ -147,8 +150,8 @@ public class DriveSubsystem extends SubsystemBase {
     // // s.
     // // s.send
     // dev.setData(m_drivetrainSimulator.getHeading().getDegrees());
-    m_devSim.setLeftVel(m_drivetrainSimulator.getLeftVelocityMetersPerSecond());
-    m_devSim.setRightVel(m_drivetrainSimulator.getRightVelocityMetersPerSecond());
+    m_driveData.setLeftVel(m_drivetrainSimulator.getLeftVelocityMetersPerSecond());
+    m_driveData.setRightVel(m_drivetrainSimulator.getRightVelocityMetersPerSecond());
     
   }
 
