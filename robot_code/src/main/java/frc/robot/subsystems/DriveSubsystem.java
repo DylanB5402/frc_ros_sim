@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.Constants;
+import frc.robot.sim.PretendDevice;
+import frc.robot.sim.PretendDeviceSim;
 import edu.wpi.first.wpilibj.geometry.Pose2d;
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.kinematics.DifferentialDriveOdometry;
@@ -21,7 +23,6 @@ import edu.wpi.first.wpilibj.kinematics.DifferentialDriveWheelSpeeds;
 import edu.wpi.first.wpilibj.simulation.ADXRS450_GyroSim;
 import edu.wpi.first.wpilibj.simulation.DifferentialDrivetrainSim;
 import edu.wpi.first.wpilibj.simulation.EncoderSim;
-import edu.wpi.first.wpilibj.simulation.SimDeviceSim;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -70,7 +71,10 @@ public class DriveSubsystem extends SubsystemBase {
   // The Field2d class shows the field in the sim GUI
   private Field2d m_fieldSim;
   private ADXRS450_GyroSim m_gyroSim;
-  private SimDevice s;
+
+  private PretendDevice m_dev;
+  private PretendDeviceSim m_devSim;
+
 
   /** Creates a new DriveSubsystem. */
   public DriveSubsystem() {
@@ -100,8 +104,9 @@ public class DriveSubsystem extends SubsystemBase {
       // the Field2d class lets us visualize our robot in the simulation GUI.
       m_fieldSim = new Field2d();
       SmartDashboard.putData("Field", m_fieldSim);
-      s = SimDevice.create("TestDevice");
-      
+
+      m_dev = new PretendDevice();
+      m_devSim = new PretendDeviceSim();
     }
   }
 
@@ -124,6 +129,10 @@ public class DriveSubsystem extends SubsystemBase {
     m_drivetrainSimulator.setInputs(
         m_leftMotors.get() * RobotController.getBatteryVoltage(),
         -m_rightMotors.get() * RobotController.getBatteryVoltage());
+    // m_drivetrainSimulator.setInputs(
+    //     m_leftMotors.get() * 12,
+    //     -m_rightMotors.get() * 12);
+        
     m_drivetrainSimulator.update(0.020);
 
     m_leftEncoderSim.setDistance(m_drivetrainSimulator.getLeftPositionMeters());
@@ -133,9 +142,13 @@ public class DriveSubsystem extends SubsystemBase {
     m_gyroSim.setAngle(-m_drivetrainSimulator.getHeading().getDegrees());
     SmartDashboard.putNumber("left vel", m_drivetrainSimulator.getLeftVelocityMetersPerSecond() / Constants.DriveConstants.kWheelRadiusMeters);
     SmartDashboard.putNumber("right vel", m_drivetrainSimulator.getRightVelocityMetersPerSecond() / Constants.DriveConstants.kWheelRadiusMeters);
-    s.createDouble("TestData", Direction.kOutput, 0);
-    // s.
-    // s.send
+    // s.createDouble("TestData", Direction.kOutput, m_drivetrainSimulator.getHeading().getDegrees());
+    // // s.creat
+    // // s.
+    // // s.send
+    // dev.setData(m_drivetrainSimulator.getHeading().getDegrees());
+    m_devSim.setLeftVel(m_drivetrainSimulator.getLeftVelocityMetersPerSecond());
+    m_devSim.setRightVel(m_drivetrainSimulator.getRightVelocityMetersPerSecond());
     
   }
 

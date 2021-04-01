@@ -47,7 +47,7 @@ class DriveModel:
         kTrackWidth = 0.69
         kWheelDiam = 0.1524
         self.wheel_radius = 0.0762
-        self.dt = 0.1
+        self.dt = 0.02
         # rate = rospy.Rate(dt ** -1)
         kDrivetrainPlant = LinearSystemId.identifyDrivetrainSystem(kV, kA, kAngularV, kAngularA)
         self.simModel = DifferentialDrivetrainSim(kDrivetrainPlant, kTrackWidth, kDriveGearbox, kGearing, kWheelDiam/2, )

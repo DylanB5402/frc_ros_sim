@@ -26,15 +26,15 @@ def run_model():
                 # rospy.loginfo(data['data'])
                 if '<speed' in dict(data['data']).keys():
                     if (data['device'] == left_motor_port):
-                        # print(data['type'], data['device'], data['data']['<speed'])
                         left_voltage = 12 * float(data['data']['<speed'])
                     elif (data['device'] == right_motor_port):
-                        right_voltage = -12 * float(data['data']['<speed'])
+                        right_voltage = 12 * float(data['data']['<speed'])
         else:
             left_voltage = 0
             right_voltage = 0
         voltage.data = [left_voltage, right_voltage]
         voltage_publisher.publish(voltage)
+    
     ws.close()
         
         
