@@ -36,7 +36,7 @@ class DriveModel:
 
     def __init__(self):
         rospy.init_node('drivetrain_model', anonymous=True)
-        self.voltage_subscriber = rospy.Subscriber("/drive_voltage", Float64MultiArray, callback=self.set_velocity)
+        self.voltage_subscriber = rospy.Subscriber("/drive_vel", Float64MultiArray, callback=self.set_velocity)
         self.vel_publisher = rospy.Publisher("/robot_drive_controller/command", Float64MultiArray, queue_size=10)
         kV = 1.98
         kA = 0.2
@@ -57,16 +57,16 @@ class DriveModel:
         self.right_motor_port = '2'
         rospy.spin()
 
-    def set_velocity(self, voltage):
-        voltage_data = voltage.data
-        left_voltage = voltage_data[0]
-        right_voltage = voltage_data[1]
-        self.simModel.setInputs(left_voltage, right_voltage)
-        self.simModel.update(self.dt)
+    def set_velocity(self, velocity):
+        vel_data = velocity.data
+        # left_voltage = vel_data[0]
+        # right_voltage = vel_data[1]
+        # self.simModel.setInputs(left_voltage, right_voltage)
+        # self.simModel.update(self.dt)
         vel_array = Float64MultiArray()
         # divide by radius to convert from m/s to rad/s
-        left_vel = self.simModel.getLeftVelocity() / self.wheel_radius
-        right_vel = self.simModel.getRightVelocity() / self.wheel_radius
+        left_vel = vel_data[0] / self.wheel_radius
+        right_vel = vel_data[1] / self.wheel_radius
         # left front, left_back, right_front right_back
         vel_array.data = [left_vel, left_vel, right_vel, right_vel]
         self.vel_publisher.publish(vel_array)

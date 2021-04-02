@@ -33,11 +33,13 @@ public class DriveSimData {
 class DriveData {
 
     private SimDevice m_SimDevice;
-    private SimDouble m_leftVelMPS, m_rightVelMPS;
+    // private SimDouble m_leftVelMPS, m_rightVelMPS;
 
     public DriveData() {
         m_SimDevice = SimDevice.create("DriveData");
-        m_leftVelMPS = m_SimDevice.createDouble("left_vel_mps", SimDevice.Direction.kInput, 0);
-        m_rightVelMPS = m_SimDevice.createDouble("right_vel_mps", SimDevice.Direction.kInput, 0);
+        // m_leftVelMPS = m_SimDevice.createDouble("left_vel_mps", SimDevice.Direction.kInput, 0);
+        // m_rightVelMPS = m_SimDevice.createDouble("right_vel_mps", SimDevice.Direction.kInput, 0);
+        m_SimDevice.createDouble("left_vel_mps", SimDevice.Direction.kInput, 0);
+        m_SimDevice.createDouble("right_vel_mps", SimDevice.Direction.kInput, 0);
     }
 }

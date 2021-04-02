@@ -73,8 +73,6 @@ public class DriveSubsystem extends SubsystemBase {
   private Field2d m_fieldSim;
   private ADXRS450_GyroSim m_gyroSim;
 
-  // private PretendDevice m_dev;
-  // private PretendDeviceSim m_devSim;
   private DriveSimData m_driveData;
 
 
